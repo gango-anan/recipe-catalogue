@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterRecipes from './FilterRecipes';
+import SearchRecipe from './SearchRecipe';
 
 const Navbar = () => {
   return (
@@ -11,7 +12,9 @@ const Navbar = () => {
           Filter by category:
           <FilterRecipes />
         </li>
-        <li>Search recipes</li>
+        <li>
+          <SearchRecipe />
+        </li>
       </ul>
     </nav>
   );
