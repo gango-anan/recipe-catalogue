@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterRecipes from './FilterRecipes';
 
 const Navbar = () => {
   return (
@@ -8,6 +9,7 @@ const Navbar = () => {
         <li><a href="/recipes">Recipes</a></li>
         <li>
           Filter by category:
+          <FilterRecipes />
         </li>
         <li>Search recipes</li>
       </ul>
