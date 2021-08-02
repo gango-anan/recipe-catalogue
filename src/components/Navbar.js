@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FilterRecipes from './FilterRecipes';
 import SearchRecipe from './SearchRecipe';
 
@@ -6,8 +7,8 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li><a href="/">Catalogue</a></li>
-        <li><a href="/recipe">Recipe</a></li>
+        <li><Link to="/">Catalogue</Link></li>
+        <li><Link to="/recipe">Recipe</Link></li>
         <li>
           Filter by category:
           <FilterRecipes />

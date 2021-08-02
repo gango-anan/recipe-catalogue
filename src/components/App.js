@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar />
-        <Route path='/' component={RecipeList} />
+        <Route exact path='/' component={RecipeList} />
         <Route path='/recipe' component={Recipe} />
       </div>
     </BrowserRouter>
