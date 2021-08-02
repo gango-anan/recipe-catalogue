@@ -8,9 +8,9 @@ const FilterRecipes = () => {
       <select name="categories" id="categories">
         <option value="All recipes">All recipes</option>
         {
-          categories.map((category) => {
+          categories.map((category) =>(
             <option key={category} value={category}>{category}</option>
-          })
+          ))
         }
       </select>
     </div>
