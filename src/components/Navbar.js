@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav>
       <ul>
         <li><a href="/">Catalogue</a></li>
-        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/recipe">Recipe</a></li>
         <li>
           Filter by category:
           <FilterRecipes />
