@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchMeals } from '../actions/index';
 
 class RecipeCard extends Component {
   constructor(props) {
@@ -7,25 +8,57 @@ class RecipeCard extends Component {
     this.state = {};
   }
 
-  render() {
-    const { strCategory, strCategoryThumb, strCategoryDescription } = this.props.recipe;
-    return ( 
-      <div>
-        <h3>{ strCategory }</h3>
+  componentDidMount() {
+    this.props.fetchMeals();
+  }
+
+  render() {    
+    const { strCategory } = this.props.recipe;
+    const { meals } = this.props.meals;
+    if (!meals) {
+      return (
         <div>
-          <img src={strCategoryThumb} alt={strCategory} />
+          <span>Loading</span>
         </div>
-        <p>{ strCategoryDescription }</p>
-      </div>
-     );
+      )
+    }
+    else {
+      return ( 
+        <div>
+          <h2>{ strCategory }</h2>
+          <>
+            {
+              meals.map((meal) => {
+                const { idMeal, strMeal, strMealThumb } = meal;
+                return(
+                  <div key={ idMeal }>
+                    <div>
+                      <img src={strMealThumb} alt={strMeal} />
+                    </div>
+                    <h3>{ strMeal }</h3>
+                  </div>
+                )
+              })
+            }
+          </>
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   let recipeName = ownProps.match.params.recipeName;
   return {
-    recipe: state.recipes.categories.find((recipe) => recipe.strCategory === recipeName)
+    recipe: state.recipes.categories.find((recipe) => recipe.strCategory === recipeName),
+    meals: state.recipes.meals
   }
 };
 
-export default connect(mapStateToProps)(RecipeCard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchMeals: () => { dispatch(fetchMeals()) }
+  }
+};
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeCard);
