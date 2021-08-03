@@ -7,14 +7,14 @@ const RecipeList = ({ categories }) => {
     <div>
       {
         categories.map((category) => {
-          const { idCategory, strCategory, strCategoryThumb, strCategoryDescription } = category
+          const { idCategory, strCategory, strCategoryThumb } = category
           return(
             <div key={idCategory}>
               <div>
                 <img src={strCategoryThumb} alt={strCategory} />
               </div>
               <Link to={`/${strCategory}`}>{strCategory}</Link>
-              <p>{ strCategoryDescription }</p>
+              {/* <p>{ strCategoryDescription }</p> */}
             </div>
           )
         })
