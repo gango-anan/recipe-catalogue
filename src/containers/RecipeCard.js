@@ -7,13 +7,7 @@ class RecipeCard extends Component {
     this.state = {};
   }
 
-  // componentDidMount() {
-  //   let recipeName = this.props.match.params.recipeName;
-  //   this.setState({ recipeName });
-  // }
-
   render() {
-    //const { recipeName } = this.state;
     const { strCategory, strCategoryThumb, strCategoryDescription } = this.props.recipe;
     return ( 
       <div>
@@ -33,5 +27,5 @@ const mapStateToProps = (state, ownProps) => {
     recipe: state.recipes.categories.find((recipe) => recipe.strCategory === recipeName)
   }
 };
- 
+
 export default connect(mapStateToProps)(RecipeCard);
