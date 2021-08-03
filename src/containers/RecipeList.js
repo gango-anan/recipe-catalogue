@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const RecipeList = () => {
+const RecipeList = (props) => {
+  console.log(props.categories);
   return ( 
     <div>
       <div>
@@ -20,4 +22,10 @@ const RecipeList = () => {
    );
 }
  
-export default RecipeList;
+const mapStateToProps = (state) => {
+  return {
+    categories: state.recipes.categories
+  }
+}
+
+export default connect(mapStateToProps)(RecipeList);
