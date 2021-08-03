@@ -18,7 +18,7 @@ class RecipeCard extends Component {
     if (!meals) {
       return (
         <div>
-          <span>Loading</span>
+          <span>Loading.....</span>
         </div>
       )
     }
@@ -50,7 +50,7 @@ class RecipeCard extends Component {
 const mapStateToProps = (state, ownProps) => {
   let recipeName = ownProps.match.params.recipeName;
   return {
-    recipe: state.recipes.categories.find((recipe) => recipe.strCategory === recipeName),
+    recipe: state.recipes.categories.categories.find((recipe) => recipe.strCategory === recipeName),
     meals: state.recipes.meals
   }
 };
