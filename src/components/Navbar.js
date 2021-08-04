@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FilterRecipes from './FilterRecipes';
 import SearchRecipe from './SearchRecipe';
-import { Header, MenuList, LogoLink } from '../styles/styles';
+import { Header, MenuList } from '../styles/styles';
 
 const Navbar = () => {
 
