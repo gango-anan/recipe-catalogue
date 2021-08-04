@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/index';
 import Recipe from '../components/Recipe';
+import { RecipeContainer } from '../styles/styles';
 
 const RecipeList = (props) => {
   useEffect(() =>{
@@ -16,7 +17,7 @@ const RecipeList = (props) => {
     )
   }
   return ( 
-    <div>
+    <RecipeContainer>
       {
         categories.map((category) => {
           const { idCategory, strCategory, strCategoryThumb } = category
@@ -27,7 +28,7 @@ const RecipeList = (props) => {
           )
         })
       }
-    </div>
+    </RecipeContainer>
    );
 }
  
