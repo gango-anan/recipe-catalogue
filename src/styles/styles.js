@@ -30,7 +30,7 @@ export const FilterSelector = styled.select`
 
 export const SearchFormInput = styled.input`
   min-width: 20vw;
-  border: 2px solid #f0f0f0;
+  border: 0;
   outline: none;
   border-radius: 25px;
   padding: 0.5rem;
@@ -48,7 +48,6 @@ export const SearchButton = styled.button`
 
 export const RecipeContainer = styled.div`
   display: flex;
-  flex-basis: 100%;
   flex-wrap: wrap;
   align-items: center;
   padding-block: min(5vh, 10rem);
@@ -73,4 +72,14 @@ export const MoreDetailsButton = styled.button`
   border-radius: 3px;
   right: 1rem;
   bottom: 1rem;
+`
+
+export const MealsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+`
+
+export const MealsImage = styled.img`
+  max-width: 25vh;
+  border-radius: 50%;
 `

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions/index';
+import { MealsContainer, MealsImage } from '../styles/styles';
 
 class RecipeCard extends Component {
   constructor(props) {
@@ -24,23 +25,23 @@ class RecipeCard extends Component {
       )
     }
     return ( 
-      <div>
-        <h2>{ strCategory }</h2>
-        <>
+      <div style={{paddingBlock: 'min(5vh, 10rem)'}}>
+        <h2 style={{margin: '1rem'}}>{ strCategory }</h2>
+        <MealsContainer>
           {
             meals.map((meal) => {
               const { idMeal, strMeal, strMealThumb } = meal;
               return(
-                <div key={ idMeal }>
+                <div style={{margin: '1rem', padding: '0.5rem', textOverFlow: 'ellipsis'}} key={ idMeal }>
                   <div>
-                    <img src={strMealThumb} alt={strMeal} />
+                    <MealsImage src={strMealThumb} alt={strMeal} />
                   </div>
-                  <h3>{ strMeal }</h3>
+                  <p>{ strMeal }</p>
                 </div>
               )
             })
           }
-        </>
+        </MealsContainer>
       </div>
     );
   }
