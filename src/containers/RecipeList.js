@@ -15,25 +15,23 @@ const RecipeList = (props) => {
       </div>
     )
   }
-  else {
-    return ( 
-      <div>
-        {
-          categories.map((category) => {
-            const { idCategory, strCategory, strCategoryThumb } = category
-            return(
-              <div key={idCategory}>
-                <div>
-                  <img src={strCategoryThumb} alt={strCategory} />
-                </div>
-                <Link to={`/${strCategory}`}>{strCategory}</Link>
+  return ( 
+    <div>
+      {
+        categories.map((category) => {
+          const { idCategory, strCategory, strCategoryThumb } = category
+          return(
+            <div key={idCategory}>
+              <div>
+                <img src={strCategoryThumb} alt={strCategory} />
               </div>
-            )
-          })
-        }
-      </div>
-     );
-  }
+              <Link to={`/${strCategory}`}>{strCategory}</Link>
+            </div>
+          )
+        })
+      }
+    </div>
+   );
 }
  
 const mapStateToProps = (state) => {

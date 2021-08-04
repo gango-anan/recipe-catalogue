@@ -8,7 +8,7 @@ const FilterRecipes = (props) => {
   }
   return (
     <div>
-      <select name="categories" id="categories">
+      <select name="categories" id="categories" onChange={(e) => console.log(e.target.value)}>
         <option value="All recipes">All recipes</option>
         {
           categories.map((category) =>(
