@@ -9,10 +9,11 @@ class RecipeCard extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMeals();
+    const { strCategory } = this.props.recipe;
+    this.props.fetchMeals(strCategory);
   }
 
-  render() {    
+  render() {
     const { strCategory } = this.props.recipe;
     const { meals } = this.props.meals;
     if (!meals) {
@@ -22,28 +23,26 @@ class RecipeCard extends Component {
         </div>
       )
     }
-    else {
-      return ( 
-        <div>
-          <h2>{ strCategory }</h2>
-          <>
-            {
-              meals.map((meal) => {
-                const { idMeal, strMeal, strMealThumb } = meal;
-                return(
-                  <div key={ idMeal }>
-                    <div>
-                      <img src={strMealThumb} alt={strMeal} />
-                    </div>
-                    <h3>{ strMeal }</h3>
+    return ( 
+      <div>
+        <h2>{ strCategory }</h2>
+        <>
+          {
+            meals.map((meal) => {
+              const { idMeal, strMeal, strMealThumb } = meal;
+              return(
+                <div key={ idMeal }>
+                  <div>
+                    <img src={strMealThumb} alt={strMeal} />
                   </div>
-                )
-              })
-            }
-          </>
-        </div>
-      );
-    }
+                  <h3>{ strMeal }</h3>
+                </div>
+              )
+            })
+          }
+        </>
+      </div>
+    );
   }
 }
 
@@ -57,7 +56,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMeals: () => { dispatch(fetchMeals()) }
+    fetchMeals: (mealCategory) => { dispatch(fetchMeals(mealCategory)) }
   }
 };
  

@@ -1,9 +1,9 @@
 import axios from 'axios';
 const api_key = process.env.REACT_APP_SECRET_KEY;
 
-export const fetchMeals = () => {
+export const fetchMeals = (mealCategory) => {
   return (dispatch) => {
-    axios.get(`https://www.themealdb.com/api/json/v1/${api_key}/filter.php?c=Seafood`)
+    axios.get(`https://www.themealdb.com/api/json/v1/${api_key}/filter.php?c=${mealCategory}`)
       .then(({ data }) => {
         dispatch({ type: 'FETCH_MEALS', payload: data })
       })
