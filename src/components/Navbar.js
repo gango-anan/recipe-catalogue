@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FilterRecipes from './FilterRecipes';
 import SearchRecipe from './SearchRecipe';
+import { Header, MenuList, LogoLink } from '../styles/styles';
 
 const Navbar = () => {
 
@@ -10,18 +11,20 @@ const Navbar = () => {
   }
 
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Catalogue</Link></li>
-        <li>
-          Filter by category:
-          <FilterRecipes onChange={onFilterRecipe} />
-        </li>
-        <li>
-          <SearchRecipe />
-        </li>
-      </ul>
-    </nav>
+    <Header>
+      <nav>
+        <MenuList>
+          <li><Link to="/"><LogoLink>Catalogue</LogoLink></Link></li>
+          <li>
+            Filter by category:
+            <FilterRecipes onChange={onFilterRecipe} />
+          </li>
+          <li>
+            <SearchRecipe />
+          </li>
+        </MenuList>
+      </nav>
+    </Header>
   );
 };
  

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FilterSelector } from '../styles/styles';
 
 const FilterRecipes = (props) => {
   const { categories } = props.categories
@@ -12,16 +13,16 @@ const FilterRecipes = (props) => {
     return(<div />)
   }
   return (
-    <div>
-      <select name="categories" id="categories" onChange={handleFilterChange}>
+    <>
+      <FilterSelector name="categories" id="categories" onChange={handleFilterChange}>
         <option value="All recipes">All recipes</option>
         {
           categories.map((category) =>(
             <option key={category.strCategory} value={category.strCategory}>{category.strCategory}</option>
           ))
         }
-      </select>
-    </div>
+      </FilterSelector>
+    </>
   );
 }
 
