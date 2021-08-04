@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 
 const FilterRecipes = (props) => {
   const { categories } = props.categories
+
+  const handleFilterChange = (event) => {
+    props.onChange(event.target.value)
+  };
+
   if (!categories) {
     return(<div />)
   }
   return (
     <div>
-      <select name="categories" id="categories" onChange={(e) => console.log(e.target.value)}>
+      <select name="categories" id="categories" onChange={handleFilterChange}>
         <option value="All recipes">All recipes</option>
         {
           categories.map((category) =>(
@@ -22,7 +27,8 @@ const FilterRecipes = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.recipes.categories
+    categories: state.recipes.categories,
+    meals: state.recipes.meals
   }
 }
  

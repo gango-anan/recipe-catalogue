@@ -4,13 +4,18 @@ import FilterRecipes from './FilterRecipes';
 import SearchRecipe from './SearchRecipe';
 
 const Navbar = () => {
+
+  const onFilterRecipe = (categName) => {
+    console.log(`Filtering Recipes by: ${categName} `)
+  }
+
   return (
     <nav>
       <ul>
         <li><Link to="/">Catalogue</Link></li>
         <li>
           Filter by category:
-          <FilterRecipes />
+          <FilterRecipes onChange={onFilterRecipe} />
         </li>
         <li>
           <SearchRecipe />
