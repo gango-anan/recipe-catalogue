@@ -8,7 +8,6 @@ const Navbar = () => {
     <nav>
       <ul>
         <li><Link to="/">Catalogue</Link></li>
-        <li><Link to="/recipe">Recipe</Link></li>
         <li>
           Filter by category:
           <FilterRecipes />

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/index';
+import Recipe from '../components/Recipe';
 
 const RecipeList = (props) => {
   useEffect(() =>{
@@ -22,10 +22,7 @@ const RecipeList = (props) => {
           const { idCategory, strCategory, strCategoryThumb } = category
           return(
             <div key={idCategory}>
-              <div>
-                <img src={strCategoryThumb} alt={strCategory} />
-              </div>
-              <Link to={`/${strCategory}`}>{strCategory}</Link>
+              <Recipe category={strCategory} imageUrl={strCategoryThumb} />
             </div>
           )
         })
