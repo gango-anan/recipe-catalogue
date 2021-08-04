@@ -14,7 +14,7 @@ const Navbar = () => {
     <Header>
       <nav>
         <MenuList>
-          <li><Link to="/"><LogoLink>Catalogue</LogoLink></Link></li>
+          <li><Link style={{fontSize: "2rem"}} to="/">Catalogue</Link></li>
           <li>
             Filter by category:
             <FilterRecipes onChange={onFilterRecipe} />

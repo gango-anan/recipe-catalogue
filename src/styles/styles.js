@@ -19,10 +19,6 @@ export const MenuList = styled.ul`
   font-size: 1.3rem;
 `
 
-export const LogoLink = styled.span`
-  color: var(--light-color);
-`
-
 export const FilterSelector = styled.select`
   min-width: 20vw;
   padding: 0.5rem;
@@ -32,16 +28,11 @@ export const FilterSelector = styled.select`
   margin-left: 1rem
 `
 
-export const SearchForm = styled.form`
-  position: relative;
-`
-
 export const SearchFormInput = styled.input`
   min-width: 20vw;
   border: 2px solid #f0f0f0;
   outline: none;
   border-radius: 25px;
-
   padding: 0.5rem;
   font-size: 14px;
 `
@@ -53,4 +44,33 @@ export const SearchButton = styled.button`
   border: 0;
   background-color: unset;
   cursor: pointer;
+`
+
+export const RecipeContainer = styled.div`
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-block: min(5vh, 10rem);
+`
+
+export const RecipeWrapper = styled.div`
+  background-color: var(--light-color);
+  margin: 1rem;
+  padding: 0.5rem;
+  box-shadow: 10px 10px 29px -19px rgba(0,0,0,0.75);
+  border-radius: 8px;
+  min-height: 50vh;
+  position: relative;
+`
+
+export const MoreDetailsButton = styled.button`
+  display: block;
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  border: 0;
+  border-radius: 3px;
+  right: 1rem;
+  bottom: 1rem;
 `
