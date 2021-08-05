@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/index';
 import Recipe from '../components/Recipe';
-import { RecipeContainer } from '../styles/styles';
+import { RecipeContainer, LoadingContainer } from '../styles/styles';
+import Waiting from '../components/Waiting';
 
 const RecipeList = (props) => {
   useEffect(() =>{
@@ -10,12 +11,10 @@ const RecipeList = (props) => {
   }, [props]);
   const { categories } = props.categories;
   if (!categories) {
-    return (
-      <div>
-        Loading.....
-      </div>
-    )
-  }
+    return(<LoadingContainer>
+        <Waiting />
+      </LoadingContainer>)
+    }
   return ( 
     <RecipeContainer>
       {

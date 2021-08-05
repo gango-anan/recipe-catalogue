@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions/index';
 import { MealsContainer, MealsImage } from '../styles/styles';
+import { LoadingContainer } from '../styles/styles';
+import Waiting from '../components/Waiting';
 
 class RecipeCard extends Component {
   constructor(props) {
@@ -18,11 +20,9 @@ class RecipeCard extends Component {
     const { strCategory } = this.props.recipe;
     const { meals } = this.props.meals;
     if (!meals) {
-      return (
-        <div>
-          <span>Loading.....</span>
-        </div>
-      )
+      return(<LoadingContainer>
+        <Waiting />
+      </LoadingContainer>)
     }
     return ( 
       <div style={{paddingBlock: 'min(5vh, 10rem)'}}>

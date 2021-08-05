@@ -83,3 +83,11 @@ export const MealsImage = styled.img`
   max-width: 25vh;
   border-radius: 50%;
 `
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: 'center';
+  margin-top: 10rem;
+`
