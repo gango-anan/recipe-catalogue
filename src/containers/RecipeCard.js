@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions/index';
 import { MealsContainer, MealsImage, LoadingContainer } from '../styles/styles';
@@ -11,15 +12,14 @@ class RecipeCard extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    const { strCategory } = this.props.recipe;
-    this.props.fetchMeals(strCategory);
+  componentDidMountc = () => {
+    const { recipe, fetchMeals } = this.props;
+    fetchMeals(recipe.strCategory);
   }
 
   render() {
-    const { strCategory } = this.props.recipe;
-    const { meals } = this.props.meals;
-    if (!meals) {
+    const { recipe, meals } = this.props;
+    if (!meals.meals) {
       return (
         <LoadingContainer>
           <Waiting />
@@ -28,10 +28,10 @@ class RecipeCard extends Component {
     }
     return (
       <div style={{ paddingBlock: 'min(5vh, 10rem)' }}>
-        <h2 style={{ margin: '1rem' }}>{ strCategory }</h2>
+        <h2 style={{ margin: '1rem' }}>{ recipe.strCategory }</h2>
         <MealsContainer>
           {
-            meals.map((meal) => {
+            meals.meals.map((meal) => {
               const { idMeal, strMeal, strMealThumb } = meal;
               return (
                 <div style={{ margin: '1rem', padding: '0.5rem', textOverFlow: 'ellipsis' }} key={idMeal}>
@@ -60,5 +60,11 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchMeals: (mealCategory) => { dispatch(fetchMeals(mealCategory)); },
 });
+
+RecipeCard.propTypes = {
+  recipe: PropTypes.instanceOf(Object).isRequired,
+  meals: PropTypes.instanceOf(Object).isRequired,
+  fetchMeals: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeCard);
