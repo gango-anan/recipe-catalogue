@@ -1,12 +1,12 @@
 import React from 'react';
 import { FilterSelector, FilterContainer } from '../styles/styles';
 
-const FilterRecipes = ({ categories }) => {
+const FilterRecipes = ({ categories, onChange }) => {
 
   return (
     <FilterContainer>
       Filter by category:
-      <FilterSelector name="categories" id="categories">
+      <FilterSelector name="categories" id="categories" onChange={(e) => onChange(e.target.value)}>
         <option value="All recipes">All recipes</option>
         {
           categories.map((category) =>(

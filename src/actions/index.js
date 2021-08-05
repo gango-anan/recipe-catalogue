@@ -18,3 +18,7 @@ export const fetchCategories = () => {
       })
   }
 };
+
+export const changeCategory = (categoryName) => ({
+  type: 'CHANGE_CATEGORY', payload: categoryName,
+});

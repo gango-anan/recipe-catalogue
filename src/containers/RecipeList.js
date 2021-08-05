@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCategories } from '../actions/index';
+import { fetchCategories, changeCategory } from '../actions/index';
 import Recipe from '../components/Recipe';
 import FilterRecipes from '../components/FilterRecipes'
 import { RecipeContainer, LoadingContainer } from '../styles/styles';
@@ -10,7 +10,21 @@ const RecipeList = (props) => {
   useEffect(() =>{
     props.fetchCategories();
   }, [props]);
+
+  const {changeCategory, filters} = props;
   const { categories } = props.categories;
+  const handleSelectChange = (filters) => {
+    changeCategory(filters);
+  };
+
+  const filteredCategories = () => {
+    if (filters === 'All recipes') {
+      return categories;
+    }
+
+    return categories.filter((category) => category.strCategory === filters);
+  };
+
   if (!categories) {
     return(
       <LoadingContainer>
@@ -21,11 +35,11 @@ const RecipeList = (props) => {
   return (
     <>
     <div>
-      <FilterRecipes categories ={categories} />
+      <FilterRecipes categories ={categories} onChange={handleSelectChange} />
     </div>
     <RecipeContainer>
       {
-        categories.map((category) => {
+        filteredCategories().map((category) => {
           const { idCategory, strCategory, strCategoryThumb } = category
           return(
             <div key={idCategory}>
@@ -41,13 +55,15 @@ const RecipeList = (props) => {
  
 const mapStateToProps = (state) => {
   return {
-    categories: state.recipes.categories
+    categories: state.recipes.categories,
+    filters: state.filters
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCategories: () => { dispatch(fetchCategories()) }
+    fetchCategories: () => { dispatch(fetchCategories()) },
+    changeCategory: (name) => { dispatch(changeCategory(name)); },
   }
 };
 
