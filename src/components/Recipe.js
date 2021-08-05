@@ -14,6 +14,7 @@ const Recipe = (props) => {
       <MoreDetailsButton type="button">
         <Link to={`/${category}`}>
           See
+          {' '}
           {category}
           {' '}
           meals
