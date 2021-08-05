@@ -8,7 +8,7 @@ export const Header = styled.header`
   color: var(--light-color);
   background-color: var(--primary-color);
   padding-block: min(3vh, 10rem);
-`
+`;
 
 export const MenuList = styled.ul`
   list-style: none;
@@ -17,7 +17,7 @@ export const MenuList = styled.ul`
   align-items: center;
   margin: 0 2rem;
   font-size: 1.3rem;
-`
+`;
 
 export const SearchFormInput = styled.input`
   min-width: 20vw;
@@ -26,7 +26,7 @@ export const SearchFormInput = styled.input`
   border-radius: 25px;
   padding: 0.5rem;
   font-size: 14px;
-`
+`;
 
 export const SearchButton = styled.button`
   position: absolute;
@@ -35,13 +35,13 @@ export const SearchButton = styled.button`
   border: 0;
   background-color: unset;
   cursor: pointer;
-`
+`;
 
 export const FilterContainer = styled.div`
   text-align: center;
   font-size: 1.5rem;
   margin-top: 2rem;
-`
+`;
 
 export const FilterSelector = styled.select`
   min-width: 30vw;
@@ -51,14 +51,14 @@ export const FilterSelector = styled.select`
   font-size: 1rem;
   color: gray;
   margin-left: 1rem
-`
+`;
 
 export const RecipeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   padding-block: min(5vh, 10rem);
-`
+`;
 
 export const RecipeWrapper = styled.div`
   background-color: var(--light-color);
@@ -68,7 +68,7 @@ export const RecipeWrapper = styled.div`
   border-radius: 8px;
   min-height: 50vh;
   position: relative;
-`
+`;
 
 export const MoreDetailsButton = styled.button`
   display: block;
@@ -79,17 +79,17 @@ export const MoreDetailsButton = styled.button`
   border-radius: 3px;
   right: 1rem;
   bottom: 1rem;
-`
+`;
 
 export const MealsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-`
+`;
 
 export const MealsImage = styled.img`
   max-width: 25vh;
   border-radius: 50%;
-`
+`;
 
 export const LoadingContainer = styled.div`
   display: flex;
@@ -97,4 +97,4 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   align-items: 'center';
   margin-top: 10rem;
-`
+`;

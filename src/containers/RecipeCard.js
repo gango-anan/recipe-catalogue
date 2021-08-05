@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions/index';
-import { MealsContainer, MealsImage } from '../styles/styles';
-import { LoadingContainer } from '../styles/styles';
+import { MealsContainer, MealsImage, LoadingContainer } from '../styles/styles';
+
 import Waiting from '../components/Waiting';
 
 class RecipeCard extends Component {
@@ -20,25 +20,27 @@ class RecipeCard extends Component {
     const { strCategory } = this.props.recipe;
     const { meals } = this.props.meals;
     if (!meals) {
-      return(<LoadingContainer>
-        <Waiting />
-      </LoadingContainer>)
+      return (
+        <LoadingContainer>
+          <Waiting />
+        </LoadingContainer>
+      );
     }
-    return ( 
-      <div style={{paddingBlock: 'min(5vh, 10rem)'}}>
-        <h2 style={{margin: '1rem'}}>{ strCategory }</h2>
+    return (
+      <div style={{ paddingBlock: 'min(5vh, 10rem)' }}>
+        <h2 style={{ margin: '1rem' }}>{ strCategory }</h2>
         <MealsContainer>
           {
             meals.map((meal) => {
               const { idMeal, strMeal, strMealThumb } = meal;
-              return(
-                <div style={{margin: '1rem', padding: '0.5rem', textOverFlow: 'ellipsis'}} key={ idMeal }>
+              return (
+                <div style={{ margin: '1rem', padding: '0.5rem', textOverFlow: 'ellipsis' }} key={idMeal}>
                   <div>
                     <MealsImage src={strMealThumb} alt={strMeal} />
                   </div>
                   <p>{ strMeal }</p>
                 </div>
-              )
+              );
             })
           }
         </MealsContainer>
@@ -48,17 +50,15 @@ class RecipeCard extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let recipeName = ownProps.match.params.recipeName;
+  const { recipeName } = ownProps.match.params;
   return {
     recipe: state.recipes.categories.categories.find((recipe) => recipe.strCategory === recipeName),
-    meals: state.recipes.meals
-  }
+    meals: state.recipes.meals,
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchMeals: (mealCategory) => { dispatch(fetchMeals(mealCategory)) }
-  }
-};
- 
+const mapDispatchToProps = (dispatch) => ({
+  fetchMeals: (mealCategory) => { dispatch(fetchMeals(mealCategory)); },
+});
+
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeCard);
