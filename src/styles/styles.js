@@ -58,6 +58,7 @@ export const RecipeContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   padding-block: min(5vh, 10rem);
+  justify-content: center;
 `;
 
 export const RecipeWrapper = styled.div`
