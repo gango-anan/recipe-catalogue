@@ -12,14 +12,15 @@ class RecipeCard extends Component {
     this.state = {};
   }
 
-  componentDidMountc = () => {
+  componentDidMount() {
     const { recipe, fetchMeals } = this.props;
     fetchMeals(recipe.strCategory);
   }
 
   render() {
     const { recipe, meals } = this.props;
-    if (!meals.meals) {
+    const selectedMeals = meals.meals;
+    if (!selectedMeals) {
       return (
         <LoadingContainer>
           <Waiting />
@@ -31,7 +32,7 @@ class RecipeCard extends Component {
         <h2 style={{ margin: '1rem' }}>{ recipe.strCategory }</h2>
         <MealsContainer>
           {
-            meals.meals.map((meal) => {
+            selectedMeals.map((meal) => {
               const { idMeal, strMeal, strMealThumb } = meal;
               return (
                 <div style={{ margin: '1rem', padding: '0.5rem', textOverFlow: 'ellipsis' }} key={idMeal}>
