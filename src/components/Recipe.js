@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { RecipeWrapper, MoreDetailsButton } from '../styles/styles';
 
@@ -20,6 +21,11 @@ const Recipe = (props) => {
       </MoreDetailsButton>
     </RecipeWrapper>
   );
+};
+
+Recipe.propTypes = {
+  category: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
 };
 
 export default Recipe;
