@@ -1,20 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { FilterSelector } from '../styles/styles';
+import { FilterSelector, FilterContainer } from '../styles/styles';
 
-const FilterRecipes = (props) => {
-  const { categories } = props.categories
+const FilterRecipes = ({ categories }) => {
 
-  const handleFilterChange = (event) => {
-    props.onChange(event.target.value)
-  };
-
-  if (!categories) {
-    return(<div />)
-  }
   return (
-    <>
-      <FilterSelector name="categories" id="categories" onChange={handleFilterChange}>
+    <FilterContainer>
+      Filter by category:
+      <FilterSelector name="categories" id="categories">
         <option value="All recipes">All recipes</option>
         {
           categories.map((category) =>(
@@ -22,15 +14,8 @@ const FilterRecipes = (props) => {
           ))
         }
       </FilterSelector>
-    </>
+    </FilterContainer>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    categories: state.recipes.categories,
-    meals: state.recipes.meals
-  }
-}
- 
-export default connect(mapStateToProps)(FilterRecipes);
+export default FilterRecipes;

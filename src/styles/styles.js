@@ -19,15 +19,6 @@ export const MenuList = styled.ul`
   font-size: 1.3rem;
 `
 
-export const FilterSelector = styled.select`
-  min-width: 20vw;
-  padding: 0.5rem;
-  border: 0;
-  outline: none;
-  font-size: 14px;
-  margin-left: 1rem
-`
-
 export const SearchFormInput = styled.input`
   min-width: 20vw;
   border: 0;
@@ -44,6 +35,22 @@ export const SearchButton = styled.button`
   border: 0;
   background-color: unset;
   cursor: pointer;
+`
+
+export const FilterContainer = styled.div`
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+`
+
+export const FilterSelector = styled.select`
+  min-width: 30vw;
+  padding: 0.6rem;
+  border: 1px solid var(--grayish-color);
+  outline: none;
+  font-size: 1rem;
+  color: gray;
+  margin-left: 1rem
 `
 
 export const RecipeContainer = styled.div`
