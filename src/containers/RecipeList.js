@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchCategories, changeCategory } from '../actions/index';
 import Recipe from '../components/Recipe';
 import FilterRecipes from '../components/FilterRecipes';
@@ -11,21 +12,21 @@ const RecipeList = (props) => {
     props.fetchCategories();
   }, [props]);
 
-  const { changeCategory, filters } = props;
-  const { categories } = props.categories;
+  const { changeCategory, filters, categories } = props;
+
   const handleSelectChange = (filters) => {
     changeCategory(filters);
   };
 
   const filteredCategories = () => {
     if (filters === 'All recipes') {
-      return categories;
+      return categories.categories;
     }
 
-    return categories.filter((category) => category.strCategory === filters);
+    return categories.categories.filter((category) => category.strCategory === filters);
   };
 
-  if (!categories) {
+  if (!categories.categories) {
     return (
       <LoadingContainer>
         <Waiting />
@@ -35,7 +36,7 @@ const RecipeList = (props) => {
   return (
     <>
       <div>
-        <FilterRecipes categories={categories} onChange={handleSelectChange} />
+        <FilterRecipes categories={categories.categories} onChange={handleSelectChange} />
       </div>
       <RecipeContainer>
         {
@@ -51,6 +52,13 @@ const RecipeList = (props) => {
       </RecipeContainer>
     </>
   );
+};
+
+RecipeList.propTypes = {
+  fetchCategories: PropTypes.func.isRequired,
+  changeCategory: PropTypes.func.isRequired,
+  filters: PropTypes.string.isRequired,
+  categories: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
