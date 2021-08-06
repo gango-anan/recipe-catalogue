@@ -8,7 +8,7 @@ const Recipe = (props) => {
   return (
     <RecipeWrapper>
       <h3 style={{ textAlign: 'center', margin: '0.5rem 0' }}>{category.toUpperCase()}</h3>
-      <div>
+      <div style={{ marginBottom: '3rem' }}>
         <img src={imageUrl} alt={category} />
       </div>
       <MoreDetailsButton type="button">

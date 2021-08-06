@@ -67,7 +67,6 @@ export const RecipeWrapper = styled.div`
   padding: 0.5rem;
   box-shadow: 10px 10px 29px -19px rgba(0,0,0,0.75);
   border-radius: 8px;
-  min-height: 50vh;
   position: relative;
 `;
 
